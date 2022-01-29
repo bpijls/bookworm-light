@@ -37,6 +37,7 @@ button:focus {
 	outline: 0;
 }
 a {
+   font-style: italic;
    color: $gray;
    transition: all .3s;
    &:hover {

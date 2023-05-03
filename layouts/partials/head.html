@@ -3,14 +3,18 @@
   <title>{{ .Title }}</title>
 
   <meta name="author" content="{{ site.Params.author }}">
-  <meta name="description" content="{{ with .Params.description }} {{.}} {{else}} {{ with site.Params.description }} {{.}} {{end}} {{end}}">
+  <meta name="description"
+    content="{{ with .Params.description }} {{.}} {{else}} {{ with site.Params.description }} {{.}} {{end}} {{end}}">
 
   {{ "<!-- mobile responsive meta -->" | safeHTML}}
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 
-  
+  <!-- Add p5js file -->
   {{ if .Params.p5 }}{{ partial "p5_support.html" . }}{{ end }}
-
+  <!-- Add p5serial support file -->
+  {{ if .Params.p5serial }}{{ partial "p5_serial_support.html" . }}{{ end }}
+  <!-- Add mermaid min js file -->
+  {{ if (.Params.mermaid) }}{{ partial "mermaid.html" }}{{ end }}
   <!-- favicon -->
   {{ partialCached "favicon" . }}
 
